@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState, useEffect} from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from '@/app/firebase/config';
 import { useRouter } from 'next/navigation';
 
@@ -20,8 +20,8 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="http://localhost:3000">
+        chat-support
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -52,6 +52,7 @@ const SignIn = () => {
     try {
       const cred = await signInWithEmailAndPassword(auth, email, password);
       console.log('Sign-in successful:', cred);
+    
       sessionStorage.setItem('user', 'true');
       setEmail('');
       setPassword('');

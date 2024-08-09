@@ -25,7 +25,7 @@ export default function Home() {
     const userSession = sessionStorage.getItem('user');
     if (!user && !userSession) {
       router.push('sign-up');
-    }
+    } 
   }, [user, router]);
   
   /*
@@ -44,8 +44,12 @@ export default function Home() {
 */
   
 
+const initialMessage = user
+  ? `Hi ${user.displayName}! I'm the Headstarter support assistant. How can I help you today?`
+  : 'Hi! I\'m the Headstarter support assistant. How can I help you today?';
+
 const [messages, setMessages] = useState([
-    {role: "assistant", content: "Hi! I'm the Headstarter support assistant. How can I help you today?"}
+    {role: "assistant", content: initialMessage}//"Hi! I'm the Headstarter support assistant. How can I help you today?"}
   ])
   const sendMessage = async () => {
     setMessage('')

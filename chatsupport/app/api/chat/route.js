@@ -145,6 +145,8 @@ Supportive and encouraging language.`
 
 export async function POST(req) {
     const data = await req.json()
+
+    
    
     const completion = await openai.chat.completions.create({
         model: "openai/gpt-3.5-turbo",

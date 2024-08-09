@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword,  updateProfile } from 'firebase/auth';
 import { auth } from '@/app/firebase/config';
 import { useRouter } from 'next/navigation';
 
@@ -57,7 +57,14 @@ const SignUp = () => {
       try {
         const cred = await createUserWithEmailAndPassword(auth, email, password);
         console.log('Sign-up successful:', cred);
+
+         // Update user's profile with first and last name
+         await updateProfile(cred.user, {
+            displayName: `${firstName}`
+        });
+
         sessionStorage.setItem('user', 'true');
+        //sessionStorage.setItem('user', JSON.stringify({ firstName, lastName, email }));
         setFirstName('');
         setLastName('');
         setEmail('');
@@ -276,3 +283,10 @@ const SignUp = () => {
 };
 
 export default SignUp;*/
+
+/*
+rsync -avz --exclude 'node_modules' --exclude '.git' --exclude '.env'  --exclude '.gitignore'  --exclude '.env.local' \
+-e "ssh -i ~/Downloads/california-julia-mbp.pem" \
+. ubuntu@ec2-18-144-41-201.us-west-1.compute.amazonaws.com:~/app
+
+*/
