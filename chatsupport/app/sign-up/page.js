@@ -286,7 +286,7 @@ export default SignUp;*/
 
 /*
 rsync -avz --exclude 'node_modules' --exclude '.git' --exclude '.env'  --exclude '.gitignore'  --exclude '.env.local' \
--e "ssh -i ~/Downloads/california-julia-mbp.pem" \
-. ubuntu@ec2-18-144-41-201.us-west-1.compute.amazonaws.com:~/app
+-e "ssh -i ~/Downloads/california-julia-mbp-2.pem" \
+. ubuntu@ec2-35-90-10-172.us-west-1.compute.amazonaws.com:~/app
 
 */
