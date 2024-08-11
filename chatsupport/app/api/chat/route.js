@@ -302,7 +302,7 @@ const systemPrompt = `You are an AI-powered customer support bot for Spotify, a 
 - Record feedback for continuous improvement of the support service.
 
 Maintain a friendly, professional tone and ensure the interaction is helpful and positive.
-Important: Use no more than 200 words.`;
+Important: Use emojis when needed. Use no more than 200 words.`;
 
 // POST request handler
 export async function POST(req) {

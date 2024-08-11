@@ -157,6 +157,11 @@ return (
                     '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
                       borderColor: '#1DB954',
                     },
+                    '& .MuiOutlinedInput-root': {
+                      '&.Mui-focused fieldset': {
+                        borderColor: 'green',
+                      },
+                    },
                   }}
                 />
               </Grid>
@@ -190,6 +195,11 @@ return (
                     },
                     '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
                       borderColor: '#1DB954',
+                    },
+                    '& .MuiOutlinedInput-root': {
+                      '&.Mui-focused fieldset': {
+                        borderColor: 'green',
+                      },
                     },
                   }}
                 />

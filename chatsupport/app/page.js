@@ -122,6 +122,11 @@ const [messages, setMessages] = useState([
                     '& .MuiInputLabel-root.Mui-focused': {
                         color: '#1DB954', // Green label when focused
                       },
+                      '& .MuiOutlinedInput-root': {
+                        '&.Mui-focused fieldset': {
+                          borderColor: 'green',
+                        },
+                      },
                   }}
                 />
                 <Button 
