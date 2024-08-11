@@ -78,25 +78,29 @@ const [messages, setMessages] = useState([
      color="#1DB954"   // Spotify Green Text
     >
         <Stack direction={'column'} width="700px" height="700px" border="1px solid #1DB954" p={2} spacing={3}>
-            <Stack direction={'column'} spacing={2} flexGrow={1} overflow="auto" maxHeight="100%">
-                {
-                    messages.map((message, index) =>  (
-                        <Box
-                          key={index}
-                          display="flex"
-                          justifyContent={message.role == "assistant" ? "flex-start" : "flex-end"}
-                        >
-                            <Box
-                              bgcolor={message.role == "assistant" ?"#1DB954" : "#535353"}
-                              color={message.role == "assistant" ? "#121212" : "white"} // Green messages have black text
-                              borderRadius={16}
-                              p={3}>
-                                {message.content}
-                            </Box>
-                        </Box>
-                    ))
-                }
-            </Stack>
+        <Stack direction={'column'} spacing={2} flexGrow={1} overflow="auto" maxHeight="100%">
+  {
+    messages.map((message, index) => (
+      <Box
+        key={index}
+        display="flex"
+        justifyContent={message.role === "assistant" ? "flex-start" : "flex-end"} // Align based on role
+      >
+        <Box
+          bgcolor={message.role === "assistant" ? "#1DB954" : "#535353"}
+          color={message.role === "assistant" ? "#121212" : "white"} // Green messages have black text
+          borderRadius={16}
+          p={3}
+          maxWidth="85%" // Limiting width of the messages
+          sx={{ wordBreak: 'break-word' }} // Ensure long words break and don't overflow
+        >
+          {message.content}
+        </Box>
+      </Box>
+    ))
+  }
+</Stack>
+
             <Stack direction={'row'} spacing={2}>
                 <TextField 
                   label="Message" 
@@ -119,7 +123,7 @@ const [messages, setMessages] = useState([
                         color: '#1DB954', // Green label when focused
                       },
                   }}
-/>
+                />
                 <Button 
                   variant="contained" 
                   onClick={sendMessage} 
