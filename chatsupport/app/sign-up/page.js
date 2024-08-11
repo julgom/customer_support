@@ -21,14 +21,15 @@ import { useRouter } from 'next/navigation';
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="http://localhost:3000">
-        chat-support
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
+    
+  <Typography variant="body2" color="text.secondary" align="center" {...props}>
+  {'Copyright © '}
+  <Link color="inherit" href="http://localhost:3000">
+    chat-support
+  </Link>{' '}
+  {new Date().getFullYear()}
+  {'.'}
+  </Typography>
   );
 }
 
@@ -115,174 +116,211 @@ const SignUp = () => {
 
   };
     
-  
 
-  return (
+
+return (
     <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign up
-          </Typography>
-          {error && (
-              <Typography color="error" variant="body2" align="center">
+      <CssBaseline />
+      <Box
+        sx={{
+          backgroundColor: '#000',
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: '#1DB954',
+        }}
+      >
+        <Container component="main" maxWidth="xs">
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: '#1DB954' }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5" sx={{ color: '#1DB954' }}>
+              Sign up
+            </Typography>
+            {error && (
+              <Typography color="error" variant="body2" align="center" sx={{ color: '#1DB954' }}>
                 {error}
               </Typography>
             )}
-          <Box component="form" noValidate sx={{ mt: 3 }} >
-          
-          <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                />
+            <Box component="form" noValidate sx={{ mt: 3 }}>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    autoComplete="given-name"
+                    name="firstName"
+                    required
+                    fullWidth
+                    id="firstName"
+                    label="First Name"
+                    autoFocus
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    sx={{
+                      '& .MuiInputBase-root': {
+                        color: '#fff',
+                        backgroundColor: '#535353',
+                      },
+                      '& .MuiOutlinedInput-notchedOutline': {
+                        borderColor: '#1DB954',
+                      },
+                      '&:hover .MuiOutlinedInput-notchedOutline': {
+                        borderColor: '#1DB954',
+                      },
+                      '& .MuiInputLabel-root.Mui-focused': {
+                        color: '#1DB954',
+                      },
+                      '& .MuiInputBase-input': {
+                        color: '#fff',
+                      },
+                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        borderColor: '#1DB954',
+                      },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="lastName"
+                    label="Last Name"
+                    name="lastName"
+                    autoComplete="family-name"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    sx={{
+                      '& .MuiInputBase-root': {
+                        color: '#fff',
+                        backgroundColor: '#535353',
+                      },
+                      '& .MuiOutlinedInput-notchedOutline': {
+                        borderColor: '#1DB954',
+                      },
+                      '&:hover .MuiOutlinedInput-notchedOutline': {
+                        borderColor: '#1DB954',
+                      },
+                      '& .MuiInputLabel-root.Mui-focused': {
+                        color: '#1DB954',
+                      },
+                      '& .MuiInputBase-input': {
+                        color: '#fff',
+                      },
+                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        borderColor: '#1DB954',
+                      },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    sx={{
+                      '& .MuiInputBase-root': {
+                        color: '#fff',
+                        backgroundColor: '#535353',
+                      },
+                      '& .MuiOutlinedInput-notchedOutline': {
+                        borderColor: '#1DB954',
+                      },
+                      '&:hover .MuiOutlinedInput-notchedOutline': {
+                        borderColor: '#1DB954',
+                      },
+                      '& .MuiInputLabel-root.Mui-focused': {
+                        color: '#1DB954',
+                      },
+                      '& .MuiInputBase-input': {
+                        color: '#fff',
+                      },
+                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        borderColor: '#1DB954',
+                      },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="new-password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    sx={{
+                      '& .MuiInputBase-root': {
+                        color: '#fff',
+                        backgroundColor: '#535353',
+                      },
+                      '& .MuiOutlinedInput-notchedOutline': {
+                        borderColor: '#1DB954',
+                      },
+                      '&:hover .MuiOutlinedInput-notchedOutline': {
+                        borderColor: '#1DB954',
+                      },
+                      '& .MuiInputLabel-root.Mui-focused': {
+                        color: '#1DB954',
+                      },
+                      '& .MuiInputBase-input': {
+                        color: '#fff',
+                      },
+                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        borderColor: '#1DB954',
+                      },
+                    }}
+                  />
+                </Grid>
               </Grid>
-              <Grid item xs={12} sm={6} >
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                />
-              </Grid>  
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-
-                />
+              <Button
+                type="button"
+                fullWidth
+                variant="contained"
+                sx={{
+                  mt: 3,
+                  mb: 2,
+                  backgroundColor: '#1DB954',
+                  color: '#000',
+                  '&:hover': {
+                    backgroundColor: '#1aa34a',
+                  },
+                }}
+                onClick={handleSignUp}
+              >
+                Sign Up
+              </Button>
+              <Grid container justifyContent="center">
+                <Grid item>
+                  <Link href="/sign-in" variant="body2" sx={{ color: '#1DB954' }}>
+                    Already have an account? Sign in
+                  </Link>
+                </Grid>
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
- 
-                />
-              </Grid>
-             
-            </Grid>
-            <Button
-            
-            
-              type="button"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              
-              onClick={handleSignUp}
-            >
-              Sign Up
-            </Button>
-            
-            <Grid container justifyContent="center">
-              <Grid item >
-                <Link href="/sign-in" variant="body2">
-                  Already have an account? Sign in
-                </Link>
-              </Grid>
-            </Grid>
+            </Box>
           </Box>
-        </Box>
-        <Copyright sx={{ mt: 5 }} />
-      </Container>
+          <Copyright sx={{ mt: 5 }} />
+        </Container>
+      </Box>
     </ThemeProvider>
   );
 }
 
-export default SignUp;/*
-'use client'
-import { useState } from 'react';
-import {useCreateUserWithEmailAndPassword} from 'react-firebase-hooks/auth'
-import {auth} from '@/app/firebase/config'
-import { useRouter } from 'next/navigation';
-
-
-const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
-  const router = useRouter();
-
-  const handleSignUp = async () => {
-    try {
-        const res = await createUserWithEmailAndPassword(email, password)
-        console.log({res})
-        sessionStorage.setItem('user', true)
-        setEmail('');
-        setPassword('')
-        router.push('/')
-
-    } catch(e){
-        console.error(e)
-    }
-  };
-
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900">
-      <div className="bg-gray-800 p-10 rounded-lg shadow-xl w-96">
-        <h1 className="text-white text-2xl mb-5">Sign Up</h1>
-        <input 
-          type="email" 
-          placeholder="Email" 
-          value={email} 
-          onChange={(e) => setEmail(e.target.value)} 
-          className="w-full p-3 mb-4 bg-gray-700 rounded outline-none text-white placeholder-gray-500"
-        />
-        <input 
-          type="password" 
-          placeholder="Password" 
-          value={password} 
-          onChange={(e) => setPassword(e.target.value)} 
-          className="w-full p-3 mb-4 bg-gray-700 rounded outline-none text-white placeholder-gray-500"
-        />
-        <button 
-          onClick={handleSignUp}
-          className="w-full p-3 bg-indigo-600 rounded text-white hover:bg-indigo-500"
-        >
-          Sign Up
-        </button>
-      </div>
-    </div>
-  );
-};
-
-export default SignUp;*/
+export default SignUp;
 
 /*
 rsync -avz --exclude 'node_modules' --exclude '.git' --exclude '.env'  --exclude '.gitignore'  --exclude '.env.local' \
@@ -290,3 +328,4 @@ rsync -avz --exclude 'node_modules' --exclude '.git' --exclude '.env'  --exclude
 . ubuntu@ec2-35-90-10-172.us-west-1.compute.amazonaws.com:~/app
 
 */
+
