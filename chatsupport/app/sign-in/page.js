@@ -215,7 +215,7 @@ return (
             <Grid container justifyContent="center">
               <Grid item>
                 <Link href="/sign-up" variant="body2" sx={{ color: '#1DB954' }}>
-                  Don't have an account? Sign Up
+                  Don&apos;t have an account? Sign Up
                 </Link>
               </Grid>
             </Grid>
