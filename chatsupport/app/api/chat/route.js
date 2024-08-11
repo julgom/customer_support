@@ -273,7 +273,12 @@ async function getContext(query) {
 }
 
 // System prompt definition
-const systemPrompt = `You are an AI-powered customer support bot for Spotify, a popular music streaming platform. 
+const systemPrompt = `You are an AI-powered customer support bot for Spotify, a popular music streaming platform.
+
+**Response Formatting:**
+- When providing information or steps, use line breaks (\n) to create clear and separate bullet points or numbered lists.
+- If the response is a list, make sure each item is on a new line for better readability.
+- If the information is a paragraph, keep it concise and easy to read.
 
 **Welcome and Introduction:**
 - Greet users warmly and introduce yourself as a Spotify support bot.
@@ -302,7 +307,7 @@ const systemPrompt = `You are an AI-powered customer support bot for Spotify, a 
 - Record feedback for continuous improvement of the support service.
 
 Maintain a friendly, professional tone and ensure the interaction is helpful and positive.
-Important: Use emojis when needed. Use no more than 200 words.`;
+Important: Use no more than 200 words and ensure responses are formatted for easy readability using line breaks (\n) and bullet points when listing items or steps.`;;
 
 // POST request handler
 export async function POST(req) {
@@ -348,10 +353,12 @@ export async function POST(req) {
                 const encoder = new TextEncoder();
 
                 try {
+                    
                     for await (const chunk of response.body) {
                         const chunkContent = typeof chunk === 'string' ? chunk : new TextDecoder().decode(chunk.chunk?.bytes);
                         const jsonChunk = JSON.parse(chunkContent);
                         const content = jsonChunk.completion;
+                        
 
                         if (content) {
                             const text = encoder.encode(content);

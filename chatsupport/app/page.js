@@ -1,7 +1,7 @@
 
 "use client"
 import { useState, useEffect } from "react"
-import { Box, Stack, TextField, Button } from '@mui/material';
+import { Box, Stack, TextField, Button, Typography} from '@mui/material';
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/app/firebase/config'
 import { useRouter } from 'next/navigation'
@@ -94,7 +94,13 @@ const [messages, setMessages] = useState([
           maxWidth="85%" // Limiting width of the messages
           sx={{ wordBreak: 'break-word' }} // Ensure long words break and don't overflow
         >
-          {message.content}
+        <Typography
+            component="div"
+            style={{ whiteSpace: 'pre-wrap' }} 
+        >
+            {message.content}
+        </Typography>
+         
         </Box>
       </Box>
     ))
