@@ -19,19 +19,7 @@ import { auth } from '@/app/firebase/config';
 import { useRouter } from 'next/navigation';
 
 
-function Copyright(props) {
-  return (
-    
-  <Typography variant="body2" color="text.secondary" align="center" {...props}>
-  {'Copyright © '}
-  <Link color="inherit" href="http://localhost:3000">
-    chat-support
-  </Link>{' '}
-  {new Date().getFullYear()}
-  {'.'}
-  </Typography>
-  );
-}
+
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
@@ -313,7 +301,6 @@ return (
               </Grid>
             </Box>
           </Box>
-          <Copyright sx={{ mt: 5 }} />
         </Container>
       </Box>
     </ThemeProvider>

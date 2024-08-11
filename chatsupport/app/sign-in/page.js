@@ -16,18 +16,6 @@ import { signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from '@/app/firebase/config';
 import { useRouter } from 'next/navigation';
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="http://localhost:3000">
-        chat-support
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const defaultTheme = createTheme();
 
@@ -233,7 +221,6 @@ return (
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
       </Container>
     </Box>
   </ThemeProvider>
